@@ -1,0 +1,31 @@
+{
+			"know":[
+		{
+			"id":1,
+			"name":"陆怡",
+			"sex":"女",
+			"problem":20,
+			"answer":5
+		},
+		{
+			"id":2,
+			"name":"黎明",
+			"sex":"男",
+			"problem":20,
+			"answer":9
+		},
+		{
+			"id":3,
+			"name":"媛媛",
+			"sex":"女",
+			"problem":20,
+			"answer":13
+		},
+		{ "id":4,
+			"name":"西西",
+			"sex":"女",
+			"problem":20,
+			"answer":17
+		}
+		]
+}
