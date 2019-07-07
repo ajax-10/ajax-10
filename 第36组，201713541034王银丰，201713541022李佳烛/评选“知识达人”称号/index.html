@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>ajax作业</title>
+		<style type="text/css">
+        body{
+            font-size: 20px;
+            font-family: 'Work Sans', sans-serif;
+            color: #333;
+          font-weight: 300;
+          text-align: center;
+          background-color: #f8f6f0;
+        }
+        h1{
+          font-weight: 300;
+          margin: 0px;
+          padding: 10px;
+          font-size: 16px;
+          background-color: #444;
+          color: #fff;
+        }
+        .question{
+          font-size: 30px;
+          margin-bottom: 10px;
+        }
+        .answers {
+          margin-bottom: 20px;
+          text-align: left;
+          display: inline-block;
+        }
+        .answers label{
+          display: block;
+          margin-bottom: 10px;
+        }
+        button{
+          font-family: 'Work Sans', sans-serif;
+            font-size: 16px;
+            background-color: #279;
+            color: #fff;
+            border: 0px;
+            border-radius: 3px;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        button:hover{
+            background-color: #38a;
+        }
+        .slide{
+          position: absolute;
+          left: 0px;
+          top: 0px;
+          width: 100%;
+          z-index: 1;
+          opacity: 0;
+          transition: opacity 0.5s;
+        }
+        .active-slide{
+          opacity: 1;
+          z-index: 2;
+        }
+        .quiz-container{
+          position: relative;
+          height: 200px;
+          margin-top: 40px;
+        }
+        </style>
+        
+		
+    <script type="text/javascript">
+      window.onload = function(){  
+        (function() {
+          const myQuestions = [//模拟的10道题目
+            {
+              question: "1-1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "1*1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "B"
+            },
+            {
+              question: "1-1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "1*1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "B"
+            },
+            {
+              question: "1-1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "1*1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "B"
+            },
+            {
+              question: "1-1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "A"
+            },
+            {
+              question: "1*1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "B"
+            },
+            {
+              question: "1-1=( )。",
+              answers: {
+                A: "0",
+                B: "1",
+                C: "2",
+                D: "3"
+              },
+              correctAnswer: "A"
+            },
+            
+            {
+              question: "1+1=()。",
+              answers: {
+                A: "1",
+                B: "2",
+                C: "3",
+                D: "4"
+              },
+              correctAnswer: "B"
+            }
+          ];
+
+          function buildQuiz() {//建立测试
+            
+            const output = [];
+            
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+              
+              const answers = [];
+              
+              for (letter in currentQuestion.answers) {
+                
+                answers.push(
+                  `<label>
+                     <input type="radio" name="question${questionNumber}" value="${letter}">
+                      ${letter} :
+                      ${currentQuestion.answers[letter]}
+                   </label>`
+                );
+              }
+
+              output.push(
+                `<div class="slide">
+                   <div class="question"> ${currentQuestion.question} </div>
+                   <div class="answers"> ${answers.join("")} </div>
+                 </div>`
+              );
+            });
+           
+            quizContainer.innerHTML = output.join("");
+          }
+
+          function showResults() {//展示结果
+          	let money = 0;
+            
+            const answerContainers = quizContainer.querySelectorAll(".answers");
+
+            // 记录正确答案数
+            let numCorrect = 0;
+
+            
+            myQuestions.forEach((currentQuestion, questionNumber) => {
+              
+              const answerContainer = answerContainers[questionNumber];
+              const selector = `input[name=question${questionNumber}]:checked`;
+              const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+              if (userAnswer === currentQuestion.correctAnswer) {
+                
+                //答案正确
+                numCorrect++;
+                money++;
+
+                answerContainers[questionNumber].style.color = "lightgreen";
+              } else {
+                
+                //答案错误
+                answerContainers[questionNumber].style.color = "red";
+              }
+            });
+
+            if (numCorrect >= 8) {
+            	resultsContainer.innerHTML = `您答对了${numCorrect}道题,恭喜获得“知识达人”称号!`;
+            }else {
+            	resultsContainer.innerHTML = `您答对了${numCorrect}道题,请再接再厉哦!`;
+            }
+            
+          }
+
+          function showSlide(n) {
+            slides[currentSlide].classList.remove("active-slide");
+            slides[n].classList.add("active-slide");
+            currentSlide = n;
+            
+            if (currentSlide === 0) {
+              previousButton.style.display = "none";
+            } else {
+              previousButton.style.display = "inline-block";
+            }
+            
+            if (currentSlide === slides.length - 1) {
+              nextButton.style.display = "none";
+              submitButton.style.display = "inline-block";
+            } else {
+              nextButton.style.display = "inline-block";
+              submitButton.style.display = "none";
+            }
+          }
+
+          function showNextSlide() {
+            showSlide(currentSlide + 1);
+          }
+
+          function showPreviousSlide() {
+            showSlide(currentSlide - 1);
+          }
+
+          const quizContainer = document.getElementById("quiz");
+          const resultsContainer = document.getElementById("results");
+          const submitButton = document.getElementById("submit");
+
+          // 即时展示测验
+          buildQuiz();
+
+          const previousButton = document.getElementById("previous");
+          const nextButton = document.getElementById("next");
+          const slides = document.querySelectorAll(".slide");
+          let currentSlide = 0;
+
+          showSlide(0);
+
+          // 点提交，出结果
+          submitButton.addEventListener("click", showResults);
+          previousButton.addEventListener("click", showPreviousSlide);
+          nextButton.addEventListener("click", showNextSlide);
+        })();
+        }
+    </script>    
+	</head>
+	
+	<body>
+		<h1>答对8道题便可以获得“知识达人”称号</h1>
+        <div class="quiz-container">
+            <div id="quiz"></div>
+        </div>
+        <button id="previous">前一题</button>
+        <button id="next">下一题</button>
+        <button id="submit">提交</button>
+        <div id="results"></div>
+	</body>
+</html>
