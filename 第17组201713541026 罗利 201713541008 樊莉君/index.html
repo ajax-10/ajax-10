@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html> 
+<head lang="en"> 
+ <meta charset="UTF-8"> 
+ <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script> 
+ <title>文件上传</title> 
+ 		<style>
+	html,body{
+		width:100%;
+		height:100%;
+		margin:0;
+		padding:0;
+	}
+ 	}
+	.showFileName{
+		text-align: center;
+	}
+	.bt{
+		margin-top:35px;
+	}
+ 	.box{		
+ 		text-align: center;
+		margin:auto;
+		vertical-align: center;
+		position: relative;
+		top:50%;
+		margin-top:-100px;
+		width: 400px;
+		height:100px;
+		background-color: darkseagreen;
+		padding-top:50px;
+		padding-bottom:50px;
+ 	}
+ 	#uploadForm{
+ 		margin:10px;
+ 		padding: 15px;
+ 	}
+ 	.a-upload{
+         padding: 4px 10px;
+         height: 28px;
+         line-height: 28px;
+         position: relative;
+         cursor: pointer;
+         color:#000000;
+         background-color: beige;
+         border-color: #204d74;
+         border-radius: 4px;
+         overflow: hidden;
+         display: inline-block;
+         *display: inline;
+         *zoom: 1;
+ 		text-decoration: none;
+     }
+ 	.a-upload input{
+ 		position: absolute;
+         font-size: 20px;
+         right: 0;
+         top: 0;
+         opacity: 0;
+         filter: alpha(opacity=0);
+         cursor: pointer;
+ 	}
+ 	 .a-upload:hover{
+         color:#FFFFFF;
+         background-color: bisque;
+         border-color: #204d74;
+         text-decoration: none;
+     }
+ 	#upload{
+ 		border: hidden;
+ 		width: 80px;
+ 		height: 30px;
+ 		margin-left: 0px;
+ 		border-radius: 10%;
+ 		background-color: dodgerblue;
+ 		color: white;
+ 	}
+ </style>
+</head> 
+	<body>
+		<div class="box">
+				
+			<div class="showFileName">
+				<input type="file" id="file" name="file" onchange="uploadFile(this)"/>
+			</div>
+			<div class="bt">
+				<button id="upload">上传文件</button>
+			</div>
+					
+		</div>		
+	</body> 
+<script type="text/javascript"> 
+
+ $(function () { 
+ $("#upload").click(function () { 
+  var formData = new FormData($('#uploadForm')[0]); 
+  $.ajax({ 
+  type: 'post', 
+  url: "http://192.168.1.101:8080/springbootdemo/file/upload", 
+  data: formData, 
+  cache: false, //设置为false将不会从浏览器缓存中加载请求信息
+  processData: false, //信息不转换
+  contentType: false, 
+  }).success(function (data) { 
+  alert(data); 
+  }).error(function () { 
+  alert("上传失败"); 
+  });
+ 
+ }); 
+ }); 
+</script> 
+</html>
