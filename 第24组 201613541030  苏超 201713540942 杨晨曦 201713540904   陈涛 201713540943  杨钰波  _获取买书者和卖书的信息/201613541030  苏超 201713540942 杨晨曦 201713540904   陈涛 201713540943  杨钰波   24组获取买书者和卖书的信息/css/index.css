@@ -1,0 +1,12 @@
+#msgbox  {
+	list-style: none;
+	width: 98%;
+	margin: 10 auto;
+	padding: 0;
+	overflow:auto;
+	height:200px;
+}
+#msgbox li{
+	width: 100%;
+	
+}

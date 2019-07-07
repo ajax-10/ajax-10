@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>查看</title>
+		<link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+<body>
+
+<div id="app">
+	
+	<h2> <el-row>
+  		<el-button type="primary" @click='say'>订单中心</el-button>
+	<template>
+	  <el-table
+	    :data="tableData"
+	    style="width: 100%"
+	    max-height="250">
+	       <el-table-column
+	      prop="sell"
+	      label="卖家"
+	      width="180">
+	    </el-table-column>
+	      <el-table-column
+	      prop="sellid"
+	      label="员工编号"
+	      width="180">
+	    </el-table-column>
+	    <el-table-column
+	      prop="buyid"
+	      label="订单编号"
+	      width="180">
+	    </el-table-column>
+	    <el-table-column
+	      prop="bookname"
+	      label="书名"
+	      width="180">
+	    </el-table-column>
+	    <el-table-column
+	      prop="bookprice"
+	      label="价格"
+	      width="180">
+	    </el-table-column>
+	    <el-table-column
+	      prop="buyer"
+	      label="买方"
+	      width="200">
+	    </el-table-column>
+		<el-table-column
+	      prop="buyernum"
+	      label="买家电话"
+	      width="200">
+	    </el-table-column>
+	    		<el-table-column
+	      prop="buydate"
+	      label="日期"
+	      width="200">
+	    </el-table-column>s
+	  </el-table>
+	</template>
+
+			  
+	
+</div>
+</body>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//unpkg.com/vue/dist/vue.js"></script>
+		<script src="//unpkg.com/element-ui/lib/index.js"></script>
+		<script src="js/index.js"></script>
+</html>
