@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html> 
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="style.css" />
+		<script src="readJSON.js"></script>
+	</head>
+	<body>
+		<div id = 'Gou'>购书信息</div>
+		<script>
+			var myJson = [{
+		num: 1,
+		name: "蔡玲",
+		sex: "女",
+		book: "《格林童话》"
+	},
+	{
+		num: 2,
+		name: "蔡美英",
+		sex: "女",
+		book: "《茶花女》"
+	},
+	{
+		num: 3,
+		name: "蔡胜学",
+		sex: "男",
+		book: "《夏洛的网》"
+	},
+	{
+		num: 4,
+		name: "蔡徐坤",
+		sex: "男",
+		book: "《简·爱》"
+	},
+	{
+		num: 5,
+		name: "曹蒙",
+		sex: "男",
+		book: "《格林童话》"
+	},
+	{
+		num: 6,
+		name: "曹敏",
+		sex: "女",
+		book: "《复活》"
+	},
+	{
+		num: 7,
+		name: "曹荣",
+		sex: "男",
+		book: "《初恋》"
+	},
+	{
+		num: 8,
+		name: "曾水秀",
+		sex: "女",
+		book: "《小王子》 "
+	},
+	{
+		num: 9,
+		name: "陈明",
+		sex: "男",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 10,
+		name: "陈其虎",
+		sex: "男",
+		book: "《初恋》"
+	},
+	{
+		num: 11,
+		name: "邓婕",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 12,
+		name: "邓志勇",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 13,
+		name: "丁建",
+		sex: "男",
+		book: "《红楼梦》"
+	},
+	{
+		num: 14,
+		name: "丁锦",
+		sex: "女",
+		book: "《茶花女》"
+	},
+	{
+		num: 15,
+		name: "董子健",
+		sex: "男",
+		book: "《基督山伯爵》"
+	},
+	{
+		num: 16,
+		name: "凡小芬",
+		sex: "女",
+		book: "《百年孤独》"
+	},
+	{
+		num: 17,
+		name: "付双红",
+		sex: "女",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 18,
+		name: "韩一芳",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 19,
+		name: "胡瑞",
+		sex: "男",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 20,
+		name: "华晨宇",
+		sex: "男",
+		book: "《悲惨世界》"
+	},
+	{
+		num: 21,
+		name: "黄晓明",
+		sex: "男",
+		book: "《悲惨世界》"
+	},
+	{
+		num: 22,
+		name: "黄孝志",
+		sex: "男",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 23,
+		name: "贾天华",
+		sex: "男",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 24,
+		name: "蒋平",
+		sex: "男",
+		book: "《简·爱》"
+	},
+	{
+		num: 25,
+		name: "黎春慧",
+		sex: "女",
+		book: "《小王子》 "
+	},
+	{
+		num: 26,
+		name: "李桂富",
+		sex: "男",
+		book: "《悲惨世界》"
+	},
+	{
+		num: 27,
+		name: "李娟",
+		sex: "女",
+		book: "《红与黑》"
+	},
+	{
+		num: 28,
+		name: "李君琳",
+		sex: "女",
+		book: "《红与黑》"
+	},
+	{
+		num: 29,
+		name: "李俊",
+		sex: "男",
+		book: "《红楼梦》"
+	},
+	{
+		num: 30,
+		name: "李湘群",
+		sex: "女",
+		book: "《夏洛的网》"
+	},
+	{
+		num: 31,
+		name: "李易峰",
+		sex: "男",
+		book: "《复活》 "
+	},
+	{
+		num: 32,
+		name: "李珍妹",
+		sex: "女",
+		book: "《基督山伯爵》"
+	},
+	{
+		num: 33,
+		name: "李自新",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 34,
+		name: "梁建",
+		sex: "男",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 35,
+		name: "刘昊然",
+		sex: "男",
+		book: "《简·爱》"
+	},
+	{
+		num: 36,
+		name: "刘兰",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 37,
+		name: "刘启龙",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 38,
+		name: "刘勇辉",
+		sex: "男",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 39,
+		name: "刘志宝",
+		sex: "男",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 40,
+		name: "罗美",
+		sex: "女",
+		book: "《茶花女》"
+	},
+	{
+		num: 41,
+		name: "罗新磊",
+		sex: "男",
+		book: "《小王子》"
+	},
+	{
+		num: 42,
+		name: "罗咏梅",
+		sex: "女",
+		book: "《格林童话》"
+	},
+	{
+		num: 43,
+		name: "吕红",
+		sex: "女",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 44,
+		name: "马达",
+		sex: "男",
+		book: "《红楼梦》"
+	},
+	{
+		num: 45,
+		name: "马飞",
+		sex: "男",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 46,
+		name: "彭虎",
+		sex: "男",
+		book: "《初恋》"
+	},
+	{
+		num: 47,
+		name: "邵彩云",
+		sex: "女",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 48,
+		name: "申莹洋",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 49,
+		name: "盛伟刚",
+		sex: "男",
+		book: "《小王子》 "
+	},
+	{
+		num: 50,
+		name: "孙益奇",
+		sex: "男",
+		book: "《呐喊》"
+	},
+	{
+		num: 51,
+		name: "孙媛媛",
+		sex: "女",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 52,
+		name: "唐灿华",
+		sex: "男",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 53,
+		name: "唐薇",
+		sex: "女",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 54,
+		name: "唐嫣",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 55,
+		name: "王建华",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 56,
+		name: "王景亮",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 57,
+		name: "王俊凯",
+		sex: "男",
+		book: "《悲惨世界》"
+	},
+	{
+		num: 58,
+		name: "王丽",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 59,
+		name: "王源",
+		sex: "男",
+		book: "《红楼梦》"
+	},
+	{
+		num: 60,
+		name: "王震",
+		sex: "男",
+		book: "《初恋》"
+	},
+	{
+		num: 61,
+		name: "王梓人",
+		sex: "女",
+		book: "《呐喊》"
+	},
+	{
+		num: 62,
+		name: "文彭凤",
+		sex: "女",
+		book: "《红楼梦》"
+	},
+	{
+		num: 63,
+		name: "吴丹惠",
+		sex: "女",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 64,
+		name: "伍婷",
+		sex: "女",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 65,
+		name: "谢敏",
+		sex: "女",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 66,
+		name: "徐如华",
+		sex: "女",
+		book: "《简·爱》"
+	},
+	{
+		num: 67,
+		name: "薛文泉",
+		sex: "女",
+		book: "《红楼梦》"
+	},
+	{
+		num: 68,
+		name: "杨波",
+		sex: "男",
+		book: "《小王子》 "
+	},
+	{
+		num: 69,
+		name: "杨国栋",
+		sex: "男",
+		book: "《悲惨世界》"
+	},
+	{
+		num: 70,
+		name: "杨金",
+		sex: "男",
+		book: "《夏洛的网》"
+	},
+	{
+		num: 71,
+		name: "杨隆",
+		sex: "男",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 72,
+		name: "杨幂",
+		sex: "女",
+		book: "《红楼梦》"
+	},
+	{
+		num: 73,
+		name: "杨巧敏",
+		sex: "女",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 74,
+		name: "杨友成",
+		sex: "男",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 75,
+		name: "杨知",
+		sex: "男",
+		book: "《红与黑》"
+	},
+	{
+		num: 76,
+		name: "杨紫",
+		sex: "女",
+		book: "《红楼梦》"
+	},
+	{
+		num: 77,
+		name: "叶汝红",
+		sex: "女",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 78,
+		name: "尹会南",
+		sex: "男",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 79,
+		name: "尹敏",
+		sex: "女",
+		book: "《简·爱》"
+	},
+	{
+		num: 80,
+		name: "尹文",
+		sex: "男",
+		book: "《红与黑》"
+	},
+	{
+		num: 81,
+		name: "袁滴",
+		sex: "女",
+		book: "《初恋》"
+	},
+	{
+		num: 82,
+		name: "袁艳",
+		sex: "女",
+		book: "《汤姆叔叔的小屋》"
+	},
+	{
+		num: 83,
+		name: "张建辉",
+		sex: "男",
+		book: "《雾都孤儿》"
+	},
+	{
+		num: 84,
+		name: "赵红",
+		sex: "女",
+		book: "《红与黑》"
+	},
+	{
+		num: 85,
+		name: "赵静",
+		sex: "女",
+		book: "《简·爱》"
+	},
+	{
+		num: 86,
+		name: "赵小雪",
+		sex: "女",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 87,
+		name: "赵欣",
+		sex: "女",
+		book: "《呐喊》"
+	},
+	{
+		num: 88,
+		name: "赵燕燕",
+		sex: "女",
+		book: "《阿Q正传》"
+	},
+	{
+		num: 89,
+		name: "周岚青",
+		sex: "女",
+		book: "《人性的弱点》"
+	},
+	{
+		num: 90,
+		name: "周灵灵",
+		sex: "女",
+		book: "《小王子》"
+	},
+	{
+		num: 91,
+		name: "周婷",
+		sex: "女",
+		book: "《红楼梦》"
+	},
+	{
+		num: 92,
+		name: "朱智新",
+		sex: "男",
+		book: "《简·爱》"
+	},
+	{
+		num: 93,
+		name: "卓佳",
+		sex: "女",
+		book: "《阿Q正传》"
+	},
+];
+            var json_table=document.createElement("table");
+			var json_div=document.createElement("div");
+            for(var i=0;i<myJson.length;i++){
+	            var json_tr=document.createElement("tr");
+	            var json_td1=document.createElement("td");
+                var json_td2=document.createElement("td");
+                var json_td3=document.createElement("td");
+                var json_td4=document.createElement("td");
+                var td1_data=document.createTextNode(myJson[i].num);
+                var td2_data=document.createTextNode(myJson[i].name);
+                var td3_data=document.createTextNode(myJson[i].sex);
+                var td4_data=document.createTextNode(myJson[i].book);
+                json_td1.appendChild(td1_data);
+                json_td2.appendChild(td2_data);
+                json_td3.appendChild(td3_data);
+                json_td4.appendChild(td4_data);
+                json_tr.appendChild(json_td1);
+                json_tr.appendChild(json_td2);
+                json_tr.appendChild(json_td3);
+                json_tr.appendChild(json_td4);
+                json_table.appendChild(json_tr);
+} 
+	     document.body.appendChild(json_div);	
+		 json_div.appendChild(json_table);
+    
+	
+	
+	var bookInformation = new Array();
+	for(var i in myJson)
+	{
+		bookInformation[i] = myJson[i].book;
+	}
+		</script>
+	</body>
+</html>

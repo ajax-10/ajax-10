@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+* {
+	margin:0 auto;
+	padding:0;
+	text-align:center;
+}
+body {
+	padding:15px;
+	font-size:11px;
+	font-family:Tahoma;
+	text-align:center;
+	overflow-x:auto;
+	overflow-y:scroll;
+}
+
+div{
+	width:1000px;
+	height:100%;
+}
+table {
+	weight:100%;
+	list-style:none;
+	border-top:1px solid #999;
+	height:350px;
+	text-align:center;
+	font-size:20px;
+	border:1px solid #C7C7C7;
+}
+
+td 
+{
+	list-style:none;
+	width = 300px;
+	border:1px solid #C7C7C7;
+}
+
+#Gou{
+	font-size:30px;
+	font-weight:bold;
+}
