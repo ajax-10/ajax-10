@@ -1,0 +1,10 @@
+
+.listview{width: 100%; background: #000; font-size: 14px;margin: 0; padding: 0; }
+.listview_item{float: left; width: 48%; height:66px; border: 1px solid #D8D8D8; background: #F6F6F6; list-style: none; margin-left:1% ;margin-bottom: 15px;background-image:-webkit-linear-gradient(-180deg, orange, green);background-image:linear-gradient(-180deg,#FDFDFD,#F7F7F7); cursor: pointer;}
+.listview_item:hover{border: 1px solid #e4393c;background: url(../img/chooseiocn_03.png) no-repeat right bottom;background-color: #F1FBD7;}
+.listview_item.select {border: 1px solid #e4393c;background: url(../img/chooseiocn_03.png) no-repeat right bottom;background-color: #F1FBD7;}
+.listview_item_left{float: left;  text-align: left;}
+.listview_item_left img{ width: 65px;height: 65px; margin: 0px 10px;}
+.listview_item_right{float: left; width: 65%; text-align: left;}
+.listview_item_title{color: #767B73;padding: 0; margin: 5px 0px; font-weight: bold; }
+.listview_item_tip{color: #989898;font-size: 11px; padding: 0; margin: 0;}

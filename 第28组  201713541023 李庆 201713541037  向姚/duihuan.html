@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	
+
+<head>
+	
+	<meta charset="utf-8" />
+	<title>金币兑现</title>
+	
+	<link rel="stylesheet" href="css/listview.css" />
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	<script type="text/javascript">//需要支付方式进行连接，做到兑换现金提现
+		$(function(){
+			
+			$('#public.coin', parent.document)
+		});
+		$(function(){
+			$(".listview").on("click",".listview_item",function(){
+				$(".listview_item").removeClass("select");
+				$(this).addClass("select");
+			});
+			$(document).on("click","#submit",function(){
+				alert($(".listview_item.select").attr("data-rmb")+"元")
+			});
+			
+		});
+		
+	</script>
+</head>
+ 
+<body>
+	<ul class="listview">
+		<li class="listview_item select" data-rmb="3" data-stone="0">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">3元=30元宝</p>
+			</div>
+		</li>
+		<li class="listview_item" data-rmb="20" data-stone="4">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">20元=200元宝</p>
+			</div>
+		</li>
+		<li class="listview_item"data-rmb="50" data-stone="10">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">50元=500元宝</p>
+			</div>
+		</li>
+		<li class="listview_item" data-rmb="100" data-stone="20">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">100元=1000元宝</p>
+			</div>
+		</li>
+		<li class="listview_item" data-rmb="200" data-stone="40">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">200元=2000元宝</p>
+			</div>
+		</li>
+		<li class="listview_item" data-rmb="500" data-stone="100">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">500元=5000元宝</p>
+			</div>
+		</li>
+		<li class="listview_item" data-rmb="1000" data-stone="200">
+			<div class="listview_item_left">
+				<img src="images/yuanbao_200.png" />
+			</div>
+			<div class="listview_item_right">
+				<p class="listview_item_title">1000元=10000元宝</p>
+			</div>
+		</li>
+	</ul>
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />    <input type="button" id="submit" value="获取选中金额"></input>
+ 
+</body>
+</html>
