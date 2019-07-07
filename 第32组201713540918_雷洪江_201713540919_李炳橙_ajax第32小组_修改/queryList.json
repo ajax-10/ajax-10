@@ -1,0 +1,22 @@
+{
+			"know":[
+		{
+			"question":"JScript重要吗?",
+			"name":"雷洪江",
+			"countclick":500,
+			"answer":"yes"
+		},
+		{
+			"question":"学这个会秃头吗?",
+			"name":"李炳橙",
+			"countclick":490,
+			"answer":"可能会"
+		},
+		{
+			"question":"php是最好的语言?",
+			"name":"王五",
+			"countclick":470,
+			"answer":"是的"
+		}
+		]
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<title></title>
+		<style type="text/css">
+			<style type="text/css">
+						.container {
+							width: 800px;
+							margin: 0 auto;
+							margin-top: 100px;
+							padding: 30px 0;
+							border: 1px;
+							background:lightyellow;
+						}
+						
+						.test {
+							width: 100%;
+							padding: 10px 0;
+							margin: 20px 0;
+							color: #4bade8;
+							font-size: 18px;
+							text-align: center;
+						}
+						
+						#jsonTable {
+							width: 500px;
+							margin: 0 auto;
+						}
+						
+						#ResultTable {
+							width: 500px;
+							margin: 0 auto;
+						}
+						 {
+							width: 500px;
+							margin: 0 auto;
+						}
+						
+						#jsonTable th,
+						td {
+							padding: 6px 0;
+							line-height: 30px;
+							text-align: center;
+						}
+						
+						#ResultTable th,
+						td {
+							padding: 6px 0;
+							line-height: 30px;
+							text-align: center;
+						}
+						#liId{
+		          
+							height:200px;
+							border:1px solid blue;
+							text-align: center;
+						}
+						#wbk{
+							width: 100%;
+							margin: 0 auto;
+						}
+						input{
+							width: 200px;
+							height:18px;
+							margin: 0 0;
+							left: 50%;
+						}
+						button{
+							height: 24px;
+							margin: 0 0;
+							left: 50%;
+							margin-left: 0px;
+						}
+						
+					</style>
+		<script>
+			<script src="jquery-1.8.2.min.js"></script>
+			<script type="text/javascript">
+						$(function() {
+							getDate();
+			 
+							function getDate() {
+								var temp = '';
+								$.ajax({
+									type: "get",
+									url: "queryList.json",
+									dataType: "json",
+									success: function(res) {
+										var list = res.know
+										console.log(list)
+										for(var $i = 0; $i < list.length; $i++) {
+											temp +=
+												'<tr>' +
+												'<td>' + list[$i].question + '</td>' +
+												'<td>' + list[$i].name + '</td>' +
+												'<td>' + list[$i].countclick + '</td>' +
+												'<td>' + list[$i].answer + '</td>' +
+												'</tr>';
+										}
+										$("#jsonTable tr:not(:first)").html(""); 
+										$("#jsonTable").append(temp);
+										
+									}
+								});
+							}
+						});
+						
+			function remove(){
+			 console.info(111)
+			 $("#wt").val('')
+			}
+		
+			var m = new Map();
+			function mapCount() {
+				var name = $("#wt").val();
+		
+				// 无条件情况下不触发计数器
+				if (name == '' || name == undefined) {
+					return;
+				}
+		
+				// 通过map进行计数
+				if (m.has(name)) {
+					m.set(name, m.get(name) +1);
+				} else {
+					m.set(name, 1);
+				}
+		
+				var arrayObj=Array.from(m);
+				arrayObj.sort(function(a,b){return b[1]-a[1]})
+				// 回显
+				var div = $("#liId");
+				$("li").remove();
+				var max = 3 < arrayObj.length ? 3 : arrayObj.length;
+				console.info(max);
+				for (var i = 0; i < max; i++) {
+	
+					div.append("<li name='countli'>"  + arrayObj[i][0] + "&nbsp"+"&nbsp"+"该问题访问次数"+": &nbsp" + arrayObj[i][1] + "</li>");
+				}
+				console.info(arrayObj);
+				console.info(m);
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="liId" >
+			<div id="wbk">
+				<input type="text" id="wt" placeholder="请输入问题" onfocus="remove()"> 
+				<button onclick="mapCount()" onclick="remove()">查询</button>
+				<br/>
+				<br/>
+				<br/>
+		    </div>
+		</div>
+		<div class="container">
+			<div class="test">问题统计</div>
+			<table border="1" cellspacing="0" bordercolor="#4bade8" cellpadding="0" id="jsonTable">
+				<tr>
+					<th>问题</th>
+					<th>姓名</th>
+					<th>点击量</th>
+					<th>答案</th>
+				</tr>
+			</table>
+			<br />
+		</div>
+		
+	</body>
+</html>
