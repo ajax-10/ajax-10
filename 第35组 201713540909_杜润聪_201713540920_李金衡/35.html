@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>赠书投票</title>
+</head>
+<!-- 这里使用了一张背景，综合整体美观后决定不用，注释掉了。 -->
+<!-- <body style="background-image:url(background.jpg); background-size:50%; background-repeat: no-repeat; "> -->
+
+<style type="text/css">
+body,td,th {
+	font-family: "幼圆";                 /* 设置界面字体为幼圆 */
+	font-size: 1.25rem;
+}
+</style>
+
+ <body>
+    <div align="center"; style="background-color:#d6d6d6;" ><img src="head.png"></div>    <!-- 使用title图片，增加界面艺术效果 -->
+    <div  align="center" style="background-image:url(1.jpg); background-size: 24%; background-repeat: no-repeat;">
+    <h4 style="padding: 50px">热门书籍类型投票</h4>
+        <table id="main">
+            <tr >
+                <td>
+                    <input type="radio" name="option" checked="checked"/>科幻小说       <!-- 投票项目名称 -->
+                </td>
+            </tr>
+            <tr>
+                <td style="width:550px">
+                    <div id=0 style="background-color:#0077cc; width:0; height:20px; border-width:0px;">    <!-- 投票进度条的颜色等艺术效果 -->
+                    </div>
+                </td>
+                <td>
+                    <label id="label0">0</label>票     <!-- 票数初始化 -->
+                </td>
+                <td style="background-image:url(2.jpg); background-size:15%; background-repeat: no-repeat;"></td>
+            </tr>
+            <tr>                                                                     <!-- 以下3个项目代码格式大体相同 -->
+                <td>
+                    <input type="radio" name="option" />卡通漫画
+                </td>
+            </tr>
+            <tr >
+                <td>
+                    <div id=1 style="background-color:#ffa500; height:20px; width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+                    
+                </td>
+                <td>
+                <label id="label1">0</label>票
+                </td>
+            </tr>   
+            <tr >
+                <td>
+                    <input type="radio" name="option"  />社会与自然科学
+                </td>
+            </tr>
+            <tr >
+                <td>
+                    <div id=2 style="background-color:#ff7575; height:20px;width:0;  border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+                    
+                </td>
+                <td>
+                <label id="label2">0</label>票
+                </td>
+            </tr>   
+            <tr style="font:"华文细黑";">
+                <td>
+                    <input type="radio" name="option" />人物自传
+                </td>
+            </tr>
+            <tr >
+                <td>
+                    <div id=3 style="background-color:#b3ee3a;height:20px;width:0; border-width:0px; border-color:blue; border-style:solid ; text-align:right;" ></div>
+                    
+                </td>
+                <td>
+                <label id="label3">0</label>票
+                </td>
+            </tr>
+        
+            <tr>
+                <td align="center" style="padding:50px">
+                    <input style="width:200px; height:30px; color:#FFF; background-color:#32293c; font-family: 黑体 ;font-size:18px;" type="submit" value="确认投票" onclick="ensure()"/> 
+                </td>
+            </tr>
+        </table>
+        <div style="height:100px; background-color:#d6d6d6">
+            <table heigh="100px" width="100%" align="center">
+                <tr>
+                    <td height="77" colspan="3" align="center">制作人：李金衡201713540920 &nbsp 杜润聪201713540909
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+ 
+    //这里在每个投票选项的后面添加了div，以div的宽度来表示该选项的投票数。
+    function ensure(){    //创建一个函数ensure，当点击确认投票的时候，调用ensure方法
+        
+        for(var i = 0; i < document.getElementsByName("option").length; i++){        //for循环的条件：所有投票选项的个数。
+            
+            if(document.getElementsByName("option")[i].checked == true){         //查找到是哪个投票选项被选中
+                var width = document.getElementById(i).style.width;        //获取到当前选项的宽度。
+                width = parseInt(width);              //将宽度转化为int型，因为前者获取到的width的数据单位是px
+                width += 8;                     //改变width的值，这里定义每次投票的进度条的增速,即增量
+                document.getElementById(i).style.width = width+"px";              //修改原div的宽度
+                
+                var label = "label"+i;              //lable标签里面写的是当前的投票数目。
+                var num = document.getElementById(label).innerText;              //获取当前选项的票数
+                document.getElementById(label).innerText = ++num;              //票数加1，并修改原值
+            }
+        }
+ 
+        alert("投票成功");             //弹出提示对话框,提醒投票成功
+        
+    }
+ 
+</script>
+</html>
