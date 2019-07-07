@@ -1,0 +1,22 @@
+{
+			"know":[
+		{
+			"id":1,
+			"name":"张三",
+			"problem":3,
+			"answer":3
+		},
+		{
+			"id":2,
+			"name":"李四",
+			"problem":5,
+			"answer":2
+		},
+		{
+			"id":3,
+			"name":"王五",
+			"problem":2,
+			"answer":6
+		}
+		]
+}
