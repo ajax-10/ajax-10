@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>HelloWorld</title>
+<style type="text/css">
+table {
+margin: 0 auto;
+border: 1px solid black;
+border-collapse: collapse;
+}
+td {
+border: 1px solid black;
+}
+</style>
+<script src="jquery-1.8.0.min.js"></script>
+
+
+
+
+</script>
+</head>
+<body style="text-align: center;">
+<table id="table">
+<tr>
+<td>专业</td>
+<td>书本</td>
+</tr>
+<tr>
+<td>计算机科学与技术(计科)</td>
+<td>   SQL Server数据库系统开发，操作系统原理，计算机组成原理，数据库原理 </td>
+</tr>
+<tr>
+<td>网络工程(网工)</td>
+<td>局域网交换技术，计算机组成原理，操作系统原理，数据库原理</td>
+</tr>
+<tr>
+<td>软件工程专业(软工)</td>
+<td>移动应用开发，XML基础，计算机网络原理，面向对象分析与设计</td>
+</tr>
+<tr>
+<td>通信工程专业(通工)</td>
+<td>数字信号处理，实用网络技术，数字电路与逻辑，通信原理</td>
+</tr>
+<tr>
+<td>物联网工程(物联网)</td>
+<td>数据库原理，Oracle数据库系统开发，无线传感网络技术，Ajax应用开发</td>
+</tr>
+</table>
+
+<script>
+   var rxl = ["SQL Server数据库系统开发","操作系统原理","计算机组成原理","数据库原理"];
+
+
+   var yxl = ["局域网交换技术","操作系统原理","计算机组成原理","数据库原理"];
+
+
+   var zxl = ['移动应用开发','XML基础','计算机组成原理','面向对象分析与设计'];
+
+
+   var xxl = ['Oracle数据库系统开发','无线传感网络技术','无线传感网络技术','Ajax应用开发'];
+
+var maxR = rxl.concat(yxl);  
+var maxY = zxl.concat(xxl);
+var maxV = rxl.concat(zxl);
+
+</script>
+
+<p></p>
+点击按钮将数组作为字符串输出.  数组一字符串
+
+<p></p>
+
+
+
+
+
+<p id="demo">喜欢计科与网工。</p>
+<button onclick="myFunction()">点我</button>
+<button onclick="qk1()">清空</button>
+<script>
+function myFunction(){
+	var x=document.getElementById("demo");
+	x.innerHTML=maxR.join();
+}
+function qk1(){
+	var x=document.getElementById("demo");
+	x.innerHTML="";
+}
+</script>
+
+
+<p id="demo2">喜欢软工与物联网。</p>  
+<button onclick="myFunction2()">点我</button>
+<button onclick="qk2()">清空</button>
+
+<script>
+function myFunction2(){
+	var x=document.getElementById("demo2");
+	x.innerText=maxY.join();
+	
+	
+}
+function qk2(){
+	var x=document.getElementById("demo2");
+	x.innerHTML="";
+}
+</script>
+
+<p id="demo3">喜欢计科与通工。</p>
+<button onclick="myFunction3()">点我</button>
+<button onclick="qk3()">清空</button>
+<script>
+function myFunction3(){
+	var x=document.getElementById("demo3");
+	x.innerHTML=maxV.join();
+}
+function qk3(){
+	var x=document.getElementById("demo3");
+	x.innerHTML="";
+}
+
+
+
+</script>
+</body>
+<html>
