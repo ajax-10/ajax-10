@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>选择文件</title>
+<style type="text/css">
+*{
+margin:0px;
+padding:0px;
+}
+div{
+margin:10px;
+}
+</style>
+
+
+<script>
+//当点击添加更多时，增加一个DIV
+//先增加两个input
+
+function addFile(){
+var fragment=document.createDocumentFragment();
+var divNode=document.getElementById("container");
+
+var newDiv=document.createElement("div");
+newDiv.setAttribute("id","file");
+fragment.appendChild(newDiv);
+
+var newInput=document.createElement("input");
+newInput.setAttribute("type","file");
+newInput.setAttribute("name","选择文件");
+newDiv.appendChild(newInput);
+
+var newInput=document.createElement("input");
+newInput.setAttribute("type","button");
+newInput.setAttribute("value","删除");
+newInput.setAttribute("onclick","delFile()");
+newInput.setAttribute("id","1");
+newDiv.appendChild(newInput);
+
+divNode.appendChild(fragment);
+}
+function delFile(e){ 
+var parentNode = this.event.target.parentNode;
+if (parentNode != null)
+parentNode.parentNode.removeChild(parentNode);
+}
+
+</script>
+</head>
+<body>
+<input type="button" value="选择更多" onclick="addFile()"/>
+<div id="container">
+<div id="file">
+<input type="file" name="选择文件"/>
+<input type="button" value="删除" onclick="delFile(this)" />
+</div>
+
+</body>
+</html>
