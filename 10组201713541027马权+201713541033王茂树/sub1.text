@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>
+  <title> sub1 </title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="editplus" />
+  <meta name="author" content="" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+ </head>
+<script type="text/javascript">
+<!--
+    function init(){
+        var text = document.getElementById("text").value;
+        var win_fu = window.parent;
+        var text_fu = win_fu.document.getElementById("text");
+        text_fu.value = text;
+    }
+//-->
+</script>
+ <body >
+    <input type="text" id="text" />
+    <input type="button" value="传给父窗口" onclick="init()" />
+
+ </body>
+</html>
