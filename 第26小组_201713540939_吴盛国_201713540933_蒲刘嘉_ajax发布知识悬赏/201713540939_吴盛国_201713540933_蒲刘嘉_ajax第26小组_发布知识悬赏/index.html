@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>知识悬赏</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+var i=2;
+	function count(){
+		i++;
+		if(i==3){
+	    var tj = document.getElementById('tj');
+		document.getElementById('wt3').innerText=i+tj.value;
+		}
+		if(i==4){
+	    var tj = document.getElementById('tj');
+		document.getElementById('wt4').innerText=i+tj.value;
+		}
+		if(i==5){
+	    var tj = document.getElementById('tj');
+		document.getElementById('wt5').innerText=i+tj.value;
+		}	 
+		alert("问题已提交");
+}
+</script>
+<script>
+$(document).ready(function(){
+  $("button").click(function(){
+    $("#wt3").fadeIn();
+    $("#wt4").fadeIn("slow");
+    $("#wt5").fadeIn(3000);
+  });
+});
+</script>
+	</head>
+	<body>
+  <div id="header">
+		<div class="header_top">
+			<div class="logo"><img src="img/logo.jpg"></div>
+			<div class="header_top_right">
+				<a href="#">首页</a>&nbsp;&nbsp;&nbsp;
+			<a href="#">登录</a>&nbsp;&nbsp;&nbsp;<a href="#">注册</a>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div class="header_btn"><img src="img/shou.jpg"> </div>	
+	</div><!-- header -->
+	<div id="main">   	
+		<div class="question">
+			<input type="text" id="tj" placeholder="说说你的问题" style="width: 600px;height: 50px;">&nbsp;&nbsp;</input>
+			<input type="button" onclick="count()"  value="提交"style="width: 100px;height: 40px;font-size: 20px;"></input>
+		</div>
+		<div class=mian_btn></div>
+	</div>
+	<div id="wt_top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;悬赏区</div>
+     <div id="wt">
+     	<div id="wt1">1js数组函数怎么用？（10金币）</div>
+     	<div id="wt2">2js中鼠标点击事件（8金币）</div>
+     	<div id="wt3"></div>
+  		<div id="wt4"></div>
+     	<div id="wt5"></div>
+     	<span id="count"></span>
+     </div>
+     <div class="clear2"></div>
+<div id="footer">
+  <div class="footer-menu"><p>西华师范大学</p> 
+      <p>Copyright©2019-6/书籍跳蚤 http://http://www.cwnu.edu.cn</p>
+  </div>
+</div><!-- footer -->
+	</body>
+</html>
