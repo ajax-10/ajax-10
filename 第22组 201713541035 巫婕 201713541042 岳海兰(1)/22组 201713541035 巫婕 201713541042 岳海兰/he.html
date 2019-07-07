@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			定义Json数组对象(93本书目录)
+			let jso;
+			jso = {
+				"student": [{
+						number: 1,
+						name: "蔡玲",
+						sex: "女",
+						book: "《格林童话》"
+					},
+					{
+						number: 2,
+						name: "蔡美英",
+						sex: "女",
+						book: "《茶花女》"
+					},
+					{
+						number: 3,
+						name: "蔡胜学",
+						sex: "男",
+						book: "《夏洛的网》"
+					},
+					{
+						number: 4,
+						name: "蔡徐坤",
+						sex: "男",
+						book: "《简·爱》"
+					},
+					{
+						number: 5,
+						name: "曹蒙",
+						sex: "男",
+						book: "《格林童话》"
+					},
+					{
+						number: 6,
+						name: "曹敏",
+						sex: "女",
+						book: "《复活》"
+					},
+					{
+						number: 7,
+						name: "曹荣",
+						sex: "男",
+						book: "《初恋》"
+					},
+					{
+						number: 8,
+						name: "曾水秀",
+						sex: "女",
+						book: "《小王子》"
+					},
+					{
+						number: 9,
+						name: "陈明",
+						sex: "男",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 10,
+						name: "陈其虎",
+						sex: "男",
+						book: "《初恋》"
+					},
+					{
+						number: 11,
+						name: "邓婕",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 12,
+						name: "邓志勇",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 13,
+						name: "丁建",
+						sex: "男",
+						book: "《红楼梦》"
+					},
+					{
+						number: 14,
+						name: "丁锦",
+						sex: "女",
+						book: "《茶花女》"
+					},
+					{
+						number: 15,
+						name: "董子健",
+						sex: "男",
+						book: "《基督山伯爵》"
+					},
+					{
+						number: 16,
+						name: "凡小芬",
+						sex: "女",
+						book: "《百年孤独》"
+					},
+					{
+						number: 17,
+						name: "付双红",
+						sex: "女",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 18,
+						name: "韩一芳",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 19,
+						name: "胡瑞",
+						sex: "男",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 20,
+						name: "华晨宇",
+						sex: "男",
+						book: "《悲惨世界》"
+					},
+					{
+						number: 21,
+						name: "黄晓明",
+						sex: "男",
+						book: "《悲惨世界》"
+					},
+					{
+						number: 22,
+						name: "黄孝志",
+						sex: "男",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 23,
+						name: "贾天华",
+						sex: "男",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 24,
+						name: "蒋平",
+						sex: "男",
+						book: "《简·爱》"
+					},
+					{
+						number: 25,
+						name: "黎春慧",
+						sex: "女",
+						book: "《小王子》"
+					},
+					{
+						number: 26,
+						name: "李桂富",
+						sex: "男",
+						book: "《悲惨世界》"
+					},
+					{
+						number: 27,
+						name: "李娟",
+						sex: "女",
+						book: "《红与黑》"
+					},
+					{
+						number: 28,
+						name: "李君琳",
+						sex: "女",
+						book: "《红与黑》"
+					},
+					{
+						number: 29,
+						name: "李俊",
+						sex: "男",
+						book: "《红楼梦》"
+					},
+					{
+						number: 30,
+						name: "李湘群",
+						sex: "女",
+						book: "《夏洛的网》"
+					},
+					{
+						number: 31,
+						name: "李易峰",
+						sex: "男",
+						book: "《复活》"
+					},
+					{
+						number: 32,
+						name: "李珍妹",
+						sex: "女",
+						book: "《基督山伯爵》"
+					},
+					{
+						number: 33,
+						name: "李自新",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 34,
+						name: "梁建",
+						sex: "男",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 35,
+						name: "刘昊然",
+						sex: "男",
+						book: "《简·爱》"
+					},
+					{
+						number: 36,
+						name: "刘兰",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 37,
+						name: "刘启龙",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 38,
+						name: "刘勇辉",
+						sex: "男",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 39,
+						name: "刘志宝",
+						sex: "男",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 40,
+						name: "罗美",
+						sex: "女",
+						book: "《茶花女》"
+					},
+					{
+						number: 41,
+						name: "罗新磊",
+						sex: "男",
+						book: "《小王子》"
+					},
+					{
+						number: 42,
+						name: "罗咏梅",
+						sex: "女",
+						book: "《格林童话》"
+					},
+					{
+						number: 43,
+						name: "吕红",
+						sex: "女",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 44,
+						name: "马达",
+						sex: "男",
+						book: "《红楼梦》"
+					},
+					{
+						number: 45,
+						name: "马飞",
+						sex: "男",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 46,
+						name: "彭虎",
+						sex: "男",
+						book: "《初恋》"
+					},
+					{
+						number: 47,
+						name: "邵彩云",
+						sex: "女",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 48,
+						name: "申莹洋",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 49,
+						name: "盛伟刚",
+						sex: "男",
+						book: "《小王子》"
+					},
+					{
+						number: 50,
+						name: "孙益奇",
+						sex: "男",
+						book: "《呐喊》"
+					},
+					{
+						number: 51,
+						name: "孙媛媛",
+						sex: "女",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 52,
+						name: "唐灿华",
+						sex: "男",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 53,
+						name: "唐薇",
+						sex: "女",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 54,
+						name: "唐嫣",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 55,
+						name: "王建华",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 56,
+						name: "王景亮",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 57,
+						name: "王俊凯",
+						sex: "男",
+						book: "《悲惨世界》"
+					},
+					{
+						number: 58,
+						name: "王丽",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 59,
+						name: "王源",
+						sex: "男",
+						book: "《红楼梦》"
+					},
+					{
+						number: 60,
+						name: "王震",
+						sex: "男",
+						book: "《初恋》"
+					},
+					{
+						number: 61,
+						name: "王梓人",
+						sex: "女",
+						book: "《呐喊》"
+					},
+					{
+						number: 62,
+						name: "文彭凤",
+						sex: "女",
+						book: "《红楼梦》"
+					},
+					{
+						number: 63,
+						name: "吴丹惠",
+						sex: "女",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 64,
+						name: "伍婷",
+						sex: "女",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 65,
+						name: "谢敏",
+						sex: "女",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 66,
+						name: "徐如华",
+						sex: "女",
+						book: "《简·爱》"
+					},
+					{
+						number: 67,
+						name: "薛文泉",
+						sex: "女",
+						book: "《红楼梦》"
+					},
+					{
+						number: 68,
+						name: "杨波",
+						sex: "男",
+						book: "《小王子》"
+					},
+					{
+						number: 69,
+						name: "杨国栋",
+						sex: "男",
+						book: "《悲惨世界》"
+					},
+					{
+						number: 70,
+						name: "杨金",
+						sex: "男",
+						book: "《夏洛的网》"
+					},
+					{
+						number: 71,
+						name: "杨隆",
+						sex: "男",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 72,
+						name: "杨幂",
+						sex: "女",
+						book: "《红楼梦》"
+					},
+					{
+						number: 73,
+						name: "杨巧敏",
+						sex: "女",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 74,
+						name: "杨友成",
+						sex: "男",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 75,
+						name: "杨知",
+						sex: "男",
+						book: "《红与黑》"
+					},
+					{
+						number: 76,
+						name: "杨紫",
+						sex: "女",
+						book: "《红楼梦》"
+					},
+					{
+						number: 77,
+						name: "叶汝红",
+						sex: "女",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 78,
+						name: "尹会南",
+						sex: "男",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 79,
+						name: "尹敏",
+						sex: "女",
+						book: "《简·爱》"
+					},
+					{
+						number: 80,
+						name: "尹文",
+						sex: "男",
+						book: "《红与黑》"
+					},
+					{
+						number: 81,
+						name: "袁滴",
+						sex: "女",
+						book: "《初恋》"
+					},
+					{
+						number: 82,
+						name: "袁艳",
+						sex: "女",
+						book: "《汤姆叔叔的小屋》"
+					},
+					{
+						number: 83,
+						name: "张建辉",
+						sex: "男",
+						book: "《雾都孤儿》"
+					},
+					{
+						number: 84,
+						name: "赵红",
+						sex: "女",
+						book: "《红与黑》"
+					},
+					{
+						number: 85,
+						name: "赵静",
+						sex: "女",
+						book: "《简·爱》"
+					},
+					{
+						number: 86,
+						name: "赵小雪",
+						sex: "女",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 87,
+						name: "赵欣",
+						sex: "女",
+						book: "《呐喊》"
+					},
+					{
+						number: 88,
+						name: "赵燕燕",
+						sex: "女",
+						book: "《阿Q正传》"
+					},
+					{
+						number: 89,
+						name: "周岚青",
+						sex: "女",
+						book: "《人性的弱点》"
+					},
+					{
+						number: 90,
+						name: "周灵灵",
+						sex: "女",
+						book: "《小王子》"
+					},
+					{
+						number: 91,
+						name: "周婷",
+						sex: "女",
+						book: "《红楼梦》"
+					},
+					{
+						number: 92,
+						name: "朱智新",
+						sex: "男",
+						book: "《简·爱》"
+					},
+					{
+						number: 93,
+						name: "卓佳",
+						sex: "女",
+						book: "《阿Q正传》"
+					}
+				]
+			}
+			//			找出拥有相同数的名字及书的数目和拥有相同数的人是哪些
+			for(let i = 0; i < jso.student.length; i++) {
+				let count = 1;
+				let su = 0;
+				let obj1 = jso.student[i].book;
+				for(let j = 0; j < jso.student.length; j++) {
+					let obj2 = jso.student[j].book;
+					if(obj2 == obj1) {
+						count++;
+					}
+				}
+				if(i < 1) {
+					console.info("书名:" + obj1 + "  数目： " + (count - 1))
+					console.info(jso.student[i])
+					for(let j = 0; j < jso.student.length; j++) {
+						if(jso.student[j].book == obj1) {
+							console.info(jso.student[j])
+						}
+					}
+				}
+				if(i >= 1) {
+					for(let k = i - 1; k >= 0; k--) {
+						if(obj1 == jso.student[k].book) {
+							su++;
+						}
+					}
+					if(su == 0) {
+						console.info("书名:" + obj1 + "  数目： " + (count - 1))
+						for(let j = 0; j < jso.student.length; j++) {
+							if(jso.student[j].book == obj1) {
+								console.info(jso.student[j])
+							}
+						}
+					}
+				}
+				su = 0;
+
+			}
+		</script>
+	</body>
+
+</html>
