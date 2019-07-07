@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Language" content="zh-cn" />
+<title>销量情况</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<style type="text/css">
+*{
+    margin: 0px; padding: 0px; font-size:14px; font-family:'微软雅黑'; font-size:12px;
+}
+.clearfix:after{content:'.';display:block;height:0;clear:both;visibility:hidden}
+.clearfix{display:inline-block;}
+* html .clearfix{height:1%}
+.clearfix{display:black;}
+ul li{
+  list-style:none;
+}
+</style>
+
+
+<script type="text/javascript">
+var rxl = new Array();
+var rxl = [364,234,423,173,342,346,300,452,327,366,365,265,203,400,327];
+
+var yxl = new Array();
+var yxl = [0,45,60,100,120,130,150,160,176,184,200,230,240,246,260,300];
+
+var maxR = eval("Math.max(" + rxl.toString() + ")");
+var maxY = eval("Math.max(" + yxl.toString() + ")");
+var minR = eval("Math.min(" + rxl.toString() + ")");
+
+function show() {
+	var rx = document.getElementById('rx');
+	if(rx.value=="最多"){
+		document.getElementById('shuchu').innerText="线性代数: "+maxR;
+		return 0;
+	}
+	if(rx.value=="最畅销"){
+		document.getElementById('shuchu').innerText="计算机电路基础: "+maxY;
+		return 0;
+	}if(rx.value=="卖不出去"){
+		document.getElementById('shuchu').innerText="离散数学";
+		return 0;
+	}
+	if(rx.value=="最抢手"){
+		document.getElementById('shuchu').innerText="计算机电路基础: "+maxY;
+		return 0;
+	}
+	else{
+		alert("请正确输入：最多/最畅销/卖不出去/最抢手");
+	}
+	
+}
+
+</script>
+</head>
+<body>
+<script type="text/javascript">
+window.onload = function(){
+   var oBtnT = document.getElementById('btn1');
+   var oBtnB = document.getElementById('btn2');
+   var oBtnZ = document.getElementById('btn3');
+   var oBtnD = document.getElementById('btn4');
+   var oTab = document.getElementById('tab1');
+   var arr = [];
+   var oTr = oTab.tBodies[0].rows;
+   var x;
+   //按键销量↑
+   oBtnT.onclick = function(){
+   	  x=3;
+      tab();
+      for(var i=0;i<arr.length;i++){
+          oTab.tBodies[0].appendChild(arr[i]);
+      }
+   };
+   //按键销量↓
+   oBtnB.onclick = function(){
+   	  x=3;
+      tab();
+      for(var i=0;i<arr.length;i++){
+          oTab.tBodies[0].insertBefore(arr[i],oTr[0]);
+      }
+   };
+   //按键最抢手
+   oBtnZ.onclick = function(){
+   	  x=2;
+      tab1();
+      for(var i=0;i<arr.length;i++){
+          oTab.tBodies[0].appendChild(arr[i]);
+      }
+      
+   };
+   //按键最多
+   oBtnD.onclick = function(){
+   	  x=2;
+      tab();
+      for(var i=0;i<arr.length;i++){
+          oTab.tBodies[0].insertBefore(arr[i],oTr[0]);
+      }
+      
+   };
+   //销量、最多排序
+   function tab(){
+      for(var i=0;i<oTr.length;i++){
+        arr[i] = oTr[i];
+      }
+      arr.sort(function(t1,t2){
+        var n1 = parseInt(t1.cells[x].innerHTML);
+        var n2 = parseInt(t2.cells[x].innerHTML);
+        return n1-n2;
+      });
+   };
+   //最抢手排序（月销量）
+   function tab1(){
+      for(var i=0;i<oTr.length;i++){
+        arr[i] = oTr[i];
+      }
+      arr.sort(function(t1,t2){
+        var n1 = parseInt(t1.cells[2].innerHTML-t1.cells[3].innerHTML);
+        var n2 = parseInt(t2.cells[2].innerHTML-t2.cells[3].innerHTML);
+        return n1-n2;
+      });
+   };
+}
+</script>
+<input type='button' id='btn1' value='销量↑'>
+<input type='button' id='btn2' value='销量↓'>
+<input type='button' id='btn3' value='最抢手'> 
+<input type='button' id='btn4' value='最多'>
+<table id='tab1'  width='400'>
+   <thead>
+      <td>ID</td>
+      <td>书名</td>
+      <td>总量</td>
+      <td>月销量</td>    
+      <td>价格</td> 
+      <td>出版社</td> 
+   </thead>
+   <tbody>
+      <tr>
+        <td>1</td>
+        <td>计算机操作系统</td>
+        <td>234</td>
+        <td>120</td>
+        <td>10</td> 
+        <td>西安电子科技大学出版社</td> 
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>计算机组成原理</td>
+        <td>364</td>
+        <td>150</td>
+        <td>11</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Oracle 11g</td>
+        <td>173</td>  
+        <td>60</td>
+        <td>12</td> 
+        <td>人民邮电出版社</td> 
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Zigbee技术与实训</td>
+        <td>234</td>
+        <td>100</td> 
+          <td>9</td>
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>马克思主义基本原理</td>
+        <td>342</td>
+        <td>130</td>
+        <td>14</td> 
+        <td>高等教育出版社</td> 
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>射频识别技术</td>
+        <td>346</td>
+        <td>160</td>
+        <td>15</td> 
+        <td>科学出版社</td> 
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>离散数学</td>
+        <td>203</td>
+        <td>0</td>
+        <td>16</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>线性代数</td>
+        <td>452</td>
+        <td>230</td>
+        <td>17</td> 
+        <td>高等教育出版社</td> 
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>中国传统文化要略</td>
+        <td>176</td>
+        <td>45</td>
+        <td>18</td> 
+        <td>四川出版集团</td> 
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>计算机导论</td>
+        <td>300</td>
+        <td>200</td>
+        <td>19</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>C语言程序设计</td>
+        <td>402</td>
+        <td>260</td>
+        <td>20</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>物联网技术与应用</td>
+        <td>400</td>
+        <td>240</td>
+        <td>21</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>计算机电路基础</td>
+        <td>423</td>
+        <td>300</td>
+        <td>22</td> 
+        <td>高等教育出版社</td> 
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Ajax从入门到精通</td>
+        <td>327</td>
+        <td>184</td>
+        <td>23</td> 
+        <td>清华大学出版社</td> 
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>高等数学上册</td>
+        <td>365</td>
+        <td>243</td>
+        <td>24</td> 
+        <td>高等教育出版社</td> 
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>高等数学下册</td>
+        <td>366</td>
+        <td>246</td> 
+        <td>24</td>
+        <td>高等教育出版社</td> 
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>数据结构</td>
+        <td>234</td>
+        <td>153</td>
+        <td>26</td> 
+        <td>人民邮电出版社</td> 
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Java程序设计教程</td>
+        <td>265</td>
+        <td>176</td>
+        <td>27</td> 
+        <td>机械工业出版社</td> 
+      </tr>
+</table>
+请输入内容：<input type="text" style="width: 250px;" id="rx" placeholder="最多/最畅销/卖不出去/最抢手"></input>
+<input type="submit" value="提交" onclick="show()">
+<p><textarea id="shuchu" style="height: 100px;width: 350px;"></textarea></p>
+
+</body>
+</html>
+
