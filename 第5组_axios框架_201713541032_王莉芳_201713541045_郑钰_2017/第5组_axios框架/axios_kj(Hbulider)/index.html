@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--注：引入axios引用的在线js，需要联网使用-->
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//使用ajax练习网站运用axios框架的例子
+			/*
+			 * 测试ajax练习网站，可在控制台运行，响应promise请求
+			 * 注：凡是引用http网址的地方，可以改成本项目自己写的json文件地址
+			 */
+			// http://jsonplaceholder.typicode.com/ 是一个可以做ajax练习的网站
+			//向JSONPlaceholder发出请求,测试
+			fetch('https://jsonplaceholder.typicode.com/todos/1')
+				.then(response => response.json())
+				.then(json => console.log(json))
+
+			/*
+			 * 执行get请求：获得user里属性id=1的相关参数
+			 * 注：凡是引用http网址的地方，可以改成本项目自己写的json文件地址，相应的相关属性、参数值也可以随之更改
+			 */
+			//使用jsonplaceholder.typicode.com里的users实例进行测试，
+			//其中id,name,username均为users的属性参数，可以查询网址
+			//http://jsonplaceholder.typicode.com/users查看其完整的属性和数据json文件			
+			axios.get('http://jsonplaceholder.typicode.com/users', {
+					params: {
+						id: 1 //抓取参数id=1的相关数据
+						//	name: "Leanne Graham"  //抓取参数name为Leanne Graham的相关数据
+					}
+				})
+				.then(function(response) {
+					console.log(response); //在控制台打印请求对象
+					console.log(response.data) //在控制台打印请求的相关数据
+					console.log("请求成功") //表明请求成功
+				})
+				.catch(function(error) {
+					console.log(error) //表明请求错误
+				});
+
+			
+			/*
+			 * 执行post请求：获得user里属性name=Leanne Graham,username=Bret的相关参数
+			 * 注：凡是引用http网址的地方，可以改成本项目自己写的json文件地址，相应的相关属性、参数值也可以随之更改
+			 */
+			axios.post('http://jsonplaceholder.typicode.com/users', {
+					name: 'Leanne Graham', //参数name为Leanne Graham
+					username: 'Bret' //参数username为Bret
+				})
+				.then(function(response) {
+					console.log(response); //在控制台打印出相应成功的参数对应对象
+					console.log(response.data); //在控制台打印相应的相关数据
+					console.log("响应成功") //表明响应成功
+				})
+				.catch(function(error) {
+					console.log(error); //表明响应错误
+				});
+				
+            /*
+             * 执行多个并发请求: 1.获得user里属性id=1的相关参数
+             *             2.获得user里属性id=2的相关参数
+             * 注：凡是引用http网址的地方，可以改成本项目自己写的json文件地址，相应的相关属性、参数值也可以随之更改
+             */
+			function getUserOne() {
+				return axios.get('http://jsonplaceholder.typicode.com/users', {
+					params: {
+						id: 1 //抓取参数id=1的相关数据
+					}
+				})
+				.then(function (response) {
+                  console.log(response);
+                  console.log(response.data)
+                })
+                .catch(function (error) {
+                console.log(error);
+                });
+			}
+
+			function getUserTwo() {
+				return axios.get('http://jsonplaceholder.typicode.com/users', {
+					params: {
+						id: 2 //抓取参数id=2的相关数据
+					}
+				})
+				.then(function (response) {
+                  console.log(response);
+                  console.log(response.data)
+                })
+                .catch(function (error) {
+                console.log(error);
+                });
+			}
+			
+			axios.all([getUserOne(), getUserTwo()])
+				.then(axios.spread(function(acct, perms) {
+					// 两个请求现在都执行完成
+					console.log('并发请求成功')
+					
+				}));
+		</script>
+	</body>
+
+</html>
