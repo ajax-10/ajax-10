@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js">	
+		</script>
+		<script src="http://mockjs.com/dist/mock.js"></script>
+		
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var Random = Mock.Random;
+			var a=Random.url('http', 'nuysoft.com');
+			var data = Mock.mock({
+				'list|93':[{
+					
+					'canme': '@cname()',/*姓名*/
+					'number|1-10000000': 1,/*学号*/
+					'phone': /^1[385][1-9]\d{8}/,/*手机号码*/
+					'sprice': '@float(1, 100)',/*消费金额*/
+					'sname|1': ["《数据库概论》","《数据结构》","《计算机组成原理》","《计算机操作系统》","《Ajax概论》"] ,/*书名*/
+                    'sex': /[男女]/,/*性别*/
+					'zname': '@cname',/*作者名称*/
+					'isbn': /\d{5,10}/,/*书编号*/
+					'price|1-100.1': 1,/*价格*/
+					'pname|1': ["北京邮电出版社","人民教育出版社","中国林业出版社","西华师范大学出版社","新华出版社"]/*出版社*/
+					}]
+				});
+			console.log(JSON.stringify(data, null, 93));
+			console.log(JSON.stringify(a));
+    </script>
+   </body>
+</html>

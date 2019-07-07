@@ -1,0 +1,53 @@
+使用RAP2和Mock.JS实现Web API接口的数据模拟和测试：
+1.（最近一直在思考如何对Web API的其接口数据进行独立开发的问题，随着Web API的越来越广泛应用，很多开发也要求前端后端分离，例如统一的Web API接口后，Winform团队、Web前端团队、微信小程序或者APP团队大家可以同步开发，在最初约定一些接口的输入JSON数据和输出JSON数据，但是随着项目的进度开展，这些数据结构一直有所变化，那么我们模拟的JSON数据格式也需要协同变化，但是很不幸既然大家忙着开发，接口协调的事情肯定优先级没那么高，即使每次记得协调接口数据，也不一定能够完全一致。
+
+在Web API端也就是后端没有完全做好的情况下，我们不可能给出所有接口的输入输出JSON格式，那么我们是否可以考虑采用折中模拟数据接口的方式来提供，并且能够提供比较易读、易维护的处理方式呢？答案是肯定有的，结合RAP2和Mock.js两者的特点，可以较为方便的模拟出我们需要接口的URL、输入参数、输出参数等信息。）
+
+
+
+2.功能说明：
+（1）RAP2是一个Web接口管理工具，开源免费，接口自动化，MOCK数据自动生成，自动化测试，企业级管理。
+
+（2）Mock.js的出现解决了前端离开后端就没法请求数据的问题，但也出现了新的问题，就是在切换生产环境的时候，模拟的数据可能和接口又发生不同步的情况。
+
+（3）RAP2是一个新的解决方案，将前端后端拉倒一个团队仓库中，共享一个仓库，无论是URL地址，还是请求需要的参数，在团队仓库中双方都可以管理，并且可以记录团队成员修改了哪些接口，整合到生产环境的时候，可以比较完美的切换，同步性较好！
+
+3.mock.js文档：
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js">	
+		</script>
+		<script src="http://mockjs.com/dist/mock.js"></script>
+		
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var Random = Mock.Random;
+			var a=Random.url('http', 'nuysoft.com');
+			var data = Mock.mock({
+				'list|93':[{
+					
+					'canme': '@cname()',/*姓名*/
+					'number|1-10000000': 1,/*学号*/
+					'phone': /^1[385][1-9]\d{8}/,/*手机号码*/
+					'sprice': '@float(1, 100)',/*消费金额*/
+					'sname|1': ["《数据库概论》","《数据结构》","《计算机组成原理》","《计算机操作系统》","《Ajax概论》"] ,/*书名*/
+                    'sex': /[男女]/,/*性别*/
+					'zname': '@cname',/*作者名称*/
+					'isbn': /\d{5,10}/,/*书编号*/
+					'price|1-100.1': 1,/*价格*/
+					'pname|1': ["北京邮电出版社","人民教育出版社","中国林业出版社","西华师范大学出版社","新华出版社"]/*出版社*/
+					}]
+				});
+			console.log(JSON.stringify(data, null, 93));
+			console.log(JSON.stringify(a));
+    </script>
+   </body>
+</html>
+4、如需要模拟数据，访问这个链接http://ajax1.host3v.com（在免费空间申请所得），审查元素即可。
+http://ajax1.host3v.com
