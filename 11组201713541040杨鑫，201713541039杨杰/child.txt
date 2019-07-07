@@ -1,0 +1,16 @@
+<template>
+    <div>
+       <h2>我是子组件</h2>
+    </div>
+</template>
+<script>
+    import child from './child'
+    export default{
+        components:{ child },
+        methods:{
+            childFn(){
+                alert('父组件调用了我')
+            }
+        }
+    }
+</script>
