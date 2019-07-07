@@ -1,0 +1,7 @@
+后端服务器才用ssm搭建，其中
+	jdk采用1.7版本
+	maven采用3.3.9版本
+	tomcat采用7.0版本
+该项目需要在联网状态下运行，前后端页面数据交互才用vue框架
+具体运行数据库需要将..\BookSystem\BookSystem\src\main\resources\db.properties中的
+	username=***和password=***替换成自己服务器上数据库的登录用户信息

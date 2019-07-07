@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+	<mapper namespace="cn.group.thirteen.mapper.UserMapper">
+	<insert id="insertStudent" parameterType="cn.group.thirteen.entity.UserEntity">
+		INSERT INTO 
+			student(
+				stuId,
+				stuNo,
+				stuName
+			)
+		VALUES(
+			#{stuId},
+			#{stuNo},
+			#{stuName}
+		)
+	
+	</insert>
+	
+	<select id="queryStudentAll" resultType="cn.group.thirteen.entity.UserEntity">
+		SELECT 
+			stuId,
+			stuNo,
+			stuName
+		FROM 
+			student 
+	</select>
+	
+	<select id="queryStudent" resultType="cn.group.thirteen.entity.UserEntity">
+		SELECT 
+			stuId,
+			stuNo,
+			stuName
+		FROM 
+			student
+		WHERE
+			stuName LIKE CONCAT('%',#{stuName},'%')
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
