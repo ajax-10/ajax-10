@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>回答问题</title>
+		<link rel="stylesheet" href="css/zui.css" />
+		<!-- ZUI Javascript 依赖 jQuery -->
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<!-- ZUI 标准版压缩后的 JavaScript 文件 -->
+		<script type="text/javascript" src="js/zui.min.js" ></script>
+		<!--<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>-->
+		<script src="http://mockjs.com/dist/mock.js"></script>
+		
+		<!--css样式-->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#demo{
+				margin: 10px;
+			}
+			.input_box{
+				width: 100%;
+				height: 100%;
+				border: hidden;
+				overflow: scroll;
+			}
+			.list{
+				margin-bottom: 10px;
+				width: 60%;
+			}
+			
+			/* 为第一个div添加边框 */
+			.list:first-child{
+				width: 40%;
+				padding: 10px;
+				box-shadow: 0px 0px 5px #000000;
+				border: 1px solid #000000;
+				border-radius: 1%;
+			}
+			#question,#answers{
+				font-size: 20px;
+			}
+			.btn{
+				margin-right: 15px;
+			}
+			
+			/* 用户答案区域 */
+			.user_answer{
+				width: 40%;
+				height: auto;
+				border: hidden;
+			}
+			#coins{
+				display: inline-block;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="demo">
+			<!--问题部分-->
+			<div class="list">
+				<p id="question"></p>
+				<p id="answers"></p>
+				
+				<!-- 回答问题框触发按钮 -->
+				<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myModal" id="anwer">回答问题</button>
+				
+				<!-- 对话框HTML -->
+				<div class="modal fade" id="myModal">
+				  <div class="modal-dialog">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">关闭</span></button>
+				        <h4 class="modal-title">标题</h4>
+				      </div>
+				      <div class="modal-body">
+				        <input type="text" placeholder="请输入您的答案" class="input_box" />
+				      </div>
+				      <div class="modal-footer">
+				      	<!--点击关闭按钮 对话框消失，点击保存按钮对话框消失并将数据显示到下方-->
+				        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+				        <button type="button" class="btn btn-primary" id="submit" data-dismiss="modal">保存</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				
+				<!--为用户的答案所留的区域-->
+				<input type="text" class="user_answer" id="userAnswer" />
+			</div>
+			
+			<!--切换题目部分-->
+			<div class="list">
+				<a class="btn btn-primary" id="prev">上一题</a>
+				<a class="btn btn-primary" id="next">下一题</a>
+			</div>
+			
+			<!--书币部分-->
+			<div class="coin">
+				<img src="img/coins.png" />书币数：
+				<p id="coins">0</p>
+			</div>
+			<p style="color: lightslategray; font-size: 18px; margin-top: 20px;">提示：第一次点进来没有问题，查看问题请点击上一题或下一题</p>
+		</div>
+		
+		<!--js部分-->
+		<script type="text/javascript" src="js/jquery.js" ></script>
+		<script>		
+			//调用mock方法模拟数据,随机生成一段文字作为问题
+			var init = Mock.mock(
+				'http://mockjs','@cparagraph(1, 3)'
+			)
+			
+			//封装一个ajax请求方法
+			function ajax_request(){
+				//ajax请求
+				$.ajax({
+					url: "http://mockjs", //请求的url地址
+					dataType: "json", //返回格式为json
+					async: false, //请求是否异步，默认为异步，这也是ajax重要特性
+					data: {}, //参数值
+					type: "GET", //请求方式
+		
+					success: function(req) {
+						//请求成功时处理
+						document.getElementById("question").innerText = req;
+					},
+				});
+			}
+			
+			$(function() {
+				//跳转到下一题
+				$("#next").click(function() {
+					ajax_request()	//调用请求方法
+					document.getElementById("answers").innerText = ""
+				})
+				
+				//跳转到上一题
+				$("#prev").click(function() {
+					ajax_request()	//调用请求方法
+					document.getElementById("answers").innerText = ""
+				})
+				
+				//将书币的初始值设置为0
+				var coins = document.getElementById("coins").innerText = "0"
+				var coin_count = parseInt(coins)	//书币值转换为Int型方便计算
+				
+				//提交答案
+				$('#submit').click(function(){
+					//获取到输入框中的值
+					var answer_value = $('.input_box')[0].value;
+					//提交答案便可获得10金币
+					if(answer_value != null && answer_value != ""){
+						alert("恭喜获得10书币");
+						coin_count += 10
+						document.getElementById("coins").innerText = coin_count
+					}
+					document.getElementById("answers").innerText = answer_value
+					//回答问题后将输入框的值置空
+					$('.input_box')[0].value = ""
+				})
+			})
+		</script>
+	</body>
+</html>
