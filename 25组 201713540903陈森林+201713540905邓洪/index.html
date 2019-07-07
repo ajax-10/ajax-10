@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>查看订单</title>
+		<link rel="stylesheet" href="//unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+<body>
+
+<div id="app">
+	
+	<template>
+	  <el-table
+	    :data="tableData"
+	    style="width: 100%"
+	    max-height="250">
+	    <el-table-column
+	      prop="bid"
+	      label="订单号"
+	      width="220">
+	    </el-table-column>
+	    <el-table-column
+	      prop="bname"
+	      label="书名"
+	      width="220">
+	    </el-table-column>
+	    <el-table-column
+	      prop="bprice"
+	      label="价格"
+	      width="300">
+	    </el-table-column>
+	    <el-table-column
+	      prop="bbuyname"
+	      label="买家"
+	      width="220">
+	    </el-table-column>
+		<el-table-column
+	      prop="bdate"
+	      label="日期"
+	      width="220">
+	    </el-table-column>
+	    <el-table-column
+	      label="操作"
+	      width="220">
+	      <template slot-scope="scope">
+	        <el-button
+	          @click="contack(scope.$index)"
+	          type="text"
+	          size="small">
+	        	 联系买家
+	        </el-button>
+	      </template>
+	    </el-table-column>
+	  </el-table>
+	</template>
+	<el-dialog
+			  title="11"
+			  :visible.sync="centerDialogVisible"
+			  width="30%"
+			  center id="02">
+			<div style="height: 200px;width: 100%;">
+			  	<ul id="msgbox">
+			  	</ul>
+			  </div>
+			  <el-input v-model="input" placeholder="请输入内容" id="1"></el-input>
+			  <span slot="footer" class="dialog-footer">
+			    <el-button type="primary" @click="sendmsg()">留言</el-button>
+			  </span>
+			
+	</el-dialog>
+			  
+	
+</div>
+</body>
+		<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="//unpkg.com/vue/dist/vue.js"></script>
+		<script src="//unpkg.com/element-ui/lib/index.js"></script>
+		<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+		<script src="js/index.js"></script>
+</html>
